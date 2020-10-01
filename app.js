@@ -3,6 +3,7 @@
 const express = require('express');
 const app = express();
 
+
 // serve stuff in static/ folder
 
 app.use(express.static('static/'));
@@ -34,7 +35,9 @@ app.ws('/chat/:roomName', function(ws, req, next) {
 
     ws.on('message', function(data) {
       try {
+        console.log(data);
         user.handleMessage(data);
+
       } catch (err) {
         console.error(err);
       }
