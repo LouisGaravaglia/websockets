@@ -51,6 +51,15 @@ class Room {
       member.send(JSON.stringify(data));
     }
   }
+
+  displayMembers() {
+    const members = []
+    for (let member of this.members) {
+      members.push(member.name);
+    }
+    const data = {type: "members", text: `${members.join()}`}
+    return data;
+  }
 }
 
 module.exports = Room;
